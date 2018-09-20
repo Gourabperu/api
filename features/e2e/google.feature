@@ -9,5 +9,5 @@ Feature: Functional - 001 - Ask for BCP
     Examples:
       | search_argument | page_title                       |
       | bcp             | Vía BCP                          |
-      | interbank       | el tiempo vale más que tu el dinero |
+      | interbank       | el tiempo vale más que el dinero |
 
