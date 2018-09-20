@@ -15,7 +15,7 @@ Para ejecución en local:
 - Firefox 
 - Chrome
 
-Para ejecución con containers:
+dicionslmente para ejecución con containers:
 - Docker 
 
 Para RVM:
