@@ -1,0 +1,6 @@
+default: --no-source --color -p cucumber_reporting
+
+
+
+#reporting format
+cucumber_reporting:   --format pretty --format json --out report/cucumber.json
