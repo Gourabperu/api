@@ -3,8 +3,8 @@ class Google_Page
 
   page_url 'google.com'
 
-  text_field(:search_field, :id => 'lst-ib')
-  button(:buscar, :xpath => "//input[@class='lsb'][@value='Buscar con Google']")
+  text_field(:search_field, :css => '[name=q]')
+  button(:buscar, :css => "input[name=btnK]")
   button(:con_suerte, :xpath => "//input[@class='lsb'][@value='Voy a tener suerte']")
   link(:gmail_link, :xpath => "//*[text()='Gmail']")
 
