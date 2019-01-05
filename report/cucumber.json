@@ -1,31 +1,24 @@
 [
   {
-    "uri": "/home/cliff/Projects/demo_e2e_api_001/features/e2e/google.feature",
-    "id": "functional---001---ask-for-bcp",
+    "uri": "features/api_features/api_weather.feature",
+    "id": "api---weather-information",
     "keyword": "Feature",
-    "name": "Functional - 001 - Ask for BCP",
-    "description": "  Fields validation",
+    "name": "API - Weather information",
+    "description": "",
     "line": 2,
     "tags": [
       {
-        "name": "@e2e",
+        "name": "@api",
         "line": 1
       }
     ],
     "elements": [
       {
-        "id": "functional---001---ask-for-bcp;a-user-starts-a-google-search;;2",
-        "keyword": "Scenario Outline",
-        "name": "A user starts a google search",
+        "keyword": "Background",
+        "name": "",
         "description": "",
-        "line": 11,
-        "type": "scenario",
-        "tags": [
-          {
-            "name": "@e2e",
-            "line": 1
-          }
-        ],
+        "line": 5,
+        "type": "background",
         "before": [
           {
             "match": {
@@ -33,91 +26,89 @@
             },
             "result": {
               "status": "passed",
-              "duration": 41983
-            }
-          },
-          {
-            "match": {
-              "location": "features/support/hooks.rb:14"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 8100199212
+              "duration": 40000
             }
           }
         ],
         "steps": [
           {
             "keyword": "Given ",
-            "name": "\"Test User\" has navigated to Google Page",
+            "name": "the user has the key of the weather services",
             "line": 6,
             "match": {
-              "location": "features/support/step_definitions/google_search_steps.rb:1"
+              "location": "features/support/step_definitions/api_steps/app_status_steps.rb:2"
             },
             "result": {
               "status": "passed",
-              "duration": 2759077336
-            }
-          },
-          {
-            "keyword": "When ",
-            "name": "he searches for \"bcp\"",
-            "line": 7,
-            "match": {
-              "location": "features/support/step_definitions/google_search_steps.rb:7"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2568698020
-            }
-          },
-          {
-            "keyword": "Then ",
-            "name": "System should display \"Vía BCP\" as result",
-            "line": 8,
-            "match": {
-              "location": "features/support/step_definitions/google_search_steps.rb:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1303166925
-            }
-          }
-        ],
-        "after": [
-          {
-            "match": {
-              "location": "features/support/hooks.rb:23"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 595454075
-            }
-          },
-          {
-            "match": {
-              "location": "features/support/hooks.rb:9"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 40576
+              "duration": 1000872000
             }
           }
         ]
       },
       {
-        "id": "functional---001---ask-for-bcp;a-user-starts-a-google-search;;3",
+        "id": "api---weather-information;weather-information-is-requested-for-a-city-that-exits-with-api-key-invalid;only-unauthorized;2",
         "keyword": "Scenario Outline",
-        "name": "A user starts a google search",
+        "name": "Weather information is requested for a city that exits with API Key invalid",
         "description": "",
-        "line": 12,
+        "line": 26,
         "type": "scenario",
         "tags": [
           {
-            "name": "@e2e",
+            "name": "@api",
             "line": 1
+          },
+          {
+            "name": "@InProgress",
+            "line": 18
           }
         ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "the user requests information about the climate of the \"Lima\" sending invalid keys \"e8474f0a8de0ac76e5b5a50db1d50a5x\"",
+            "line": 20,
+            "output": [
+              "{\"cod\":401, \"message\": \"Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.\"}"
+            ],
+            "match": {
+              "location": "features/support/step_definitions/api_steps/app_status_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 498851000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "the response status invalid key should be 401",
+            "line": 21,
+            "match": {
+              "location": "features/support/step_definitions/api_steps/app_status_steps.rb:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5690000
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Background",
+        "name": "",
+        "description": "",
+        "line": 5,
+        "type": "background",
         "before": [
           {
             "match": {
@@ -125,75 +116,169 @@
             },
             "result": {
               "status": "passed",
-              "duration": 77987
-            }
-          },
-          {
-            "match": {
-              "location": "features/support/hooks.rb:14"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3950643444
+              "duration": 18000
             }
           }
         ],
         "steps": [
           {
             "keyword": "Given ",
-            "name": "\"Test User\" has navigated to Google Page",
+            "name": "the user has the key of the weather services",
             "line": 6,
             "match": {
-              "location": "features/support/step_definitions/google_search_steps.rb:1"
+              "location": "features/support/step_definitions/api_steps/app_status_steps.rb:2"
             },
             "result": {
               "status": "passed",
-              "duration": 2689572551
+              "duration": 1002944000
             }
+          }
+        ]
+      },
+      {
+        "id": "api---weather-information;weather-information-is-requested-for-a-city-that-exits-with-api-key-invalid;only-unauthorized;3",
+        "keyword": "Scenario Outline",
+        "name": "Weather information is requested for a city that exits with API Key invalid",
+        "description": "",
+        "line": 27,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
           },
           {
+            "name": "@InProgress",
+            "line": 18
+          }
+        ],
+        "steps": [
+          {
             "keyword": "When ",
-            "name": "he searches for \"interbank\"",
-            "line": 7,
+            "name": "the user requests information about the climate of the \"Cali\" sending invalid keys \"e8474f0a8de0ac76e5b5a50db1d50a5y\"",
+            "line": 20,
+            "output": [
+              "{\"cod\":401, \"message\": \"Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.\"}"
+            ],
             "match": {
-              "location": "features/support/step_definitions/google_search_steps.rb:7"
+              "location": "features/support/step_definitions/api_steps/app_status_steps.rb:34"
             },
             "result": {
               "status": "passed",
-              "duration": 2897619513
+              "duration": 238311000
             }
           },
           {
             "keyword": "Then ",
-            "name": "System should display \"el tiempo vale más que tu el dinero\" as result",
-            "line": 8,
+            "name": "the response status invalid key should be 401",
+            "line": 21,
             "match": {
-              "location": "features/support/step_definitions/google_search_steps.rb:12"
+              "location": "features/support/step_definitions/api_steps/app_status_steps.rb:39"
             },
             "result": {
-              "status": "failed",
-              "error_message": "expected: true\n     got: false (using ==) (RSpec::Expectations::ExpectationNotMetError)\n./features/support/step_definitions/google_search_steps.rb:14:in `/^System should display \"([^\"]*)\" as result$/'\n./features/e2e/google.feature:12:in `Then System should display \"el tiempo vale más que tu el dinero\" as result'\n./features/e2e/google.feature:8:in `Then System should display \"<page_title>\" as result'",
-              "duration": 1348743105
+              "status": "passed",
+              "duration": 72000
             }
           }
         ],
         "after": [
           {
             "match": {
-              "location": "features/support/hooks.rb:23"
+              "location": "features/support/hooks.rb:9"
             },
             "result": {
               "status": "passed",
-              "duration": 588646208
+              "duration": 15000
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Background",
+        "name": "",
+        "description": "",
+        "line": 5,
+        "type": "background",
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 29000
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "the user has the key of the weather services",
+            "line": 6,
+            "match": {
+              "location": "features/support/step_definitions/api_steps/app_status_steps.rb:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1005139000
+            }
+          }
+        ]
+      },
+      {
+        "id": "api---weather-information;weather-information-is-requested-for-a-city-that-exits-with-api-key-invalid;only-unauthorized;4",
+        "keyword": "Scenario Outline",
+        "name": "Weather information is requested for a city that exits with API Key invalid",
+        "description": "",
+        "line": 28,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@InProgress",
+            "line": 18
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "When ",
+            "name": "the user requests information about the climate of the \"Quito\" sending invalid keys \"e8474f0a8de0ac76e5b5a50db1d50a5z\"",
+            "line": 20,
+            "output": [
+              "{\"cod\":401, \"message\": \"Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.\"}"
+            ],
+            "match": {
+              "location": "features/support/step_definitions/api_steps/app_status_steps.rb:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 269256000
             }
           },
+          {
+            "keyword": "Then ",
+            "name": "the response status invalid key should be 401",
+            "line": 21,
+            "match": {
+              "location": "features/support/step_definitions/api_steps/app_status_steps.rb:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 64000
+            }
+          }
+        ],
+        "after": [
           {
             "match": {
               "location": "features/support/hooks.rb:9"
             },
             "result": {
               "status": "passed",
-              "duration": 34262
+              "duration": 12000
             }
           }
         ]
