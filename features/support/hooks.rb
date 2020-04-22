@@ -11,7 +11,7 @@ end
 
 
 Before ('@e2e') do
-  @browser = Watir::Browser.new :chrome, headless:true
+  @browser = Watir::Browser.new :chrome, headless:false
   #@browser = Watir::Browser.new :chrome, {timeout: 120, url: 'http://localhost:4444/wd/hub'}
   screen_width = @browser.execute_script('return screen.width;')
   screen_height = @browser.execute_script('return screen.height;')
